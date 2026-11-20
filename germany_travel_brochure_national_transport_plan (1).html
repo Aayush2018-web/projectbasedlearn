@@ -1,0 +1,4349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Germany • Travel Brochure & National Transport Plan</title>
+  <meta name="description"
+    content="Discover Germany's fairy-tale castles, vibrant culture, and world-class rail network with our comprehensive travel brochure, seasonal festival guide, phrasebook, and interactive transport plan.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23F26A54%22/><text y=%2265%22 font-size=%2255%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 x=%2250%22>G</text></svg>">
+
+  <style>
+    /* ==========================================================================
+       GERMANY TRAVEL BROCHURE & TRANSPORT PLAN - MASTER STYLESHEET
+       ========================================================================== */
+
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+    :root {
+      --coral-primary: #F26A54;
+      --coral-hover: #E3533C;
+      --coral-glow: rgba(242, 106, 84, 0.4);
+      --coral-light: rgba(242, 106, 84, 0.15);
+      --canvas-outer: #060911;
+      
+      --bg-dark: #0B0E14;
+      --bg-card: rgba(18, 22, 34, 0.78);
+      --bg-card-hover: rgba(28, 34, 52, 0.88);
+      --glass-nav: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-border-subtle: rgba(255, 255, 255, 0.1);
+      --glass-blur: blur(20px);
+      
+      --text-white: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.72);
+      --text-dim: rgba(255, 255, 255, 0.45);
+      
+      --db-red: #EC1B2D;
+      --accent-gold: #F5A623;
+      --accent-green: #2ECC71;
+      --accent-cyan: #00D2D3;
+      --accent-blue: #3498DB;
+      
+      --radius-pill: 9999px;
+      --radius-card: 22px;
+      --radius-hero: 32px;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-white);
+      background-color: var(--canvas-outer);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 18% 12%, rgba(14, 165, 233, 0.16) 0%, transparent 40%),
+                  radial-gradient(circle at 82% 80%, rgba(99, 102, 241, 0.14) 0%, transparent 45%),
+                  radial-gradient(circle at 50% 50%, #0c1220 0%, #060911 100%);
+      background-attachment: fixed;
+      background-color: var(--canvas-outer);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 8px 6px;
+      }
+    }
+
+    .app-viewport {
+      width: 100%;
+      max-width: 1440px;
+      background-color: var(--bg-dark);
+      border-radius: var(--radius-hero);
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85), 0 0 50px rgba(14, 165, 233, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (7 Slides)
+       ========================================================================== */
+    .hero-container {
+      position: relative;
+      min-height: 820px;
+      height: 94vh;
+      max-height: 950px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background-color: #0d111a;
+      border-radius: var(--radius-hero) var(--radius-hero) 0 0;
+    }
+
+    .hero-bg-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      transition: opacity 0.85s ease-in-out, transform 10s ease-out;
+      transform: scale(1.02);
+      z-index: 1;
+    }
+
+    .hero-bg-layer.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-bg-layer.inactive {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 45%, rgba(0, 0, 0, 0.15) 0%, rgba(11, 14, 20, 0.7) 65%, rgba(11, 14, 20, 0.95) 100%),
+                  linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0.2) 50%, rgba(11, 14, 20, 0.6) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-header {
+      position: relative;
+      z-index: 10;
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-header {
+        padding: 20px 24px;
+      }
+    }
+
+    .brand-logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral-primary) 0%, #D84E39 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px var(--coral-glow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+    }
+
+    .brand-logo-circle:hover {
+      transform: scale(1.08) rotate(4deg);
+      box-shadow: 0 12px 30px rgba(242, 106, 84, 0.6);
+    }
+
+    .nav-frosted-pill {
+      display: flex;
+      align-items: center;
+      background: var(--glass-nav);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      padding: 8px 22px 8px 30px;
+      gap: 22px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links-list {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.88;
+      transition: var(--transition-smooth);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      opacity: 1;
+      color: #FFFFFF;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--coral-primary);
+      border-radius: 2px;
+    }
+
+    .nav-search-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: var(--transition-smooth);
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .nav-search-btn:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.08);
+    }
+
+    .nav-search-expand-wrap {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-inline-search-input {
+      width: 0;
+      opacity: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, padding 0.35s ease;
+      border-radius: var(--radius-pill);
+    }
+
+    .nav-inline-search-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-search-close-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #FFFFFF;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      margin-left: 6px;
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .nav-search-close-btn:hover {
+      background: var(--coral-primary);
+    }
+
+    .nav-frosted-pill.search-open {
+      border-color: rgba(242, 106, 84, 0.55);
+      background: rgba(18, 24, 38, 0.88);
+    }
+
+    .nav-frosted-pill.search-open .nav-inline-search-input {
+      width: 220px;
+      opacity: 1;
+      padding: 7px 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-left: 6px;
+    }
+
+    .nav-frosted-pill.search-open .nav-search-close-btn {
+      display: flex;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-frosted-pill.search-open .nav-links-list {
+        display: none;
+      }
+    }
+
+    .nav-search-dropdown {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: 390px;
+      max-width: 90vw;
+      max-height: 420px;
+      overflow-y: auto;
+      background: rgba(13, 18, 30, 0.97);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      padding: 12px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 1000;
+    }
+
+    .nav-search-dropdown.active {
+      display: flex;
+    }
+
+    .nav-search-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .nav-search-item:hover {
+      background: rgba(242, 106, 84, 0.15);
+      border-color: var(--coral-primary);
+      transform: translateX(3px);
+    }
+
+    .nav-search-item-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-search-item-type {
+      font-size: 0.68rem;
+      color: var(--coral-primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-search-item-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .nav-search-item-sub {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .menu-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--glass-nav);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      padding: 10px 22px;
+      color: var(--text-white);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .grid-icon-9 {
+      display: grid;
+      grid-template-columns: repeat(3, 3.5px);
+      gap: 3px;
+    }
+
+    .grid-icon-9 span {
+      width: 3.5px;
+      height: 3.5px;
+      background-color: #FFFFFF;
+      border-radius: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-frosted-pill .nav-links-list {
+        display: none;
+      }
+      .nav-frosted-pill {
+        padding: 8px 14px;
+      }
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 10;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 40px;
+      flex: 1;
+    }
+
+    @media (max-width: 1150px) {
+      .hero-body {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+        gap: 30px;
+      }
+    }
+
+    .hero-timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      padding: 10px 0;
+      user-select: none;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+
+    .timeline-node {
+      position: relative;
+      z-index: 2;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .timeline-node:hover {
+      transform: scale(1.5);
+      background: #FFFFFF;
+    }
+
+    .timeline-node.active {
+      width: 22px;
+      height: 22px;
+      background: var(--coral-primary);
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 14px var(--coral-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-node.active::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FFFFFF;
+    }
+
+    @media (max-width: 1150px) {
+      .hero-timeline {
+        display: none;
+      }
+    }
+
+    .hero-content-left {
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-german-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 16px;
+    }
+
+    .hero-german-badge .flag-strip {
+      display: inline-flex;
+      width: 16px;
+      height: 11px;
+      flex-direction: column;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .flag-strip span:nth-child(1) { background: #000000; height: 33.33%; }
+    .flag-strip span:nth-child(2) { background: #DD0000; height: 33.33%; }
+    .flag-strip span:nth-child(3) { background: #FFCE00; height: 33.33%; }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      margin-bottom: 28px;
+      max-width: 480px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: opacity 0.4s ease;
+    }
+
+    .hero-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--coral-primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 14px 34px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 8px 25px var(--coral-glow);
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-cta-btn:hover {
+      background: var(--coral-hover);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 35px rgba(242, 106, 84, 0.55);
+    }
+
+    .hero-cta-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .hero-cta-btn:hover svg {
+      transform: translateX(5px);
+    }
+
+    .hero-cards-deck {
+      display: flex;
+      align-items: stretch;
+      gap: 16px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    @media (max-width: 1150px) {
+      .hero-cards-deck {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        width: 100%;
+        scrollbar-width: none;
+      }
+      .hero-cards-deck::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @keyframes cardSlideEnter {
+      0% { opacity: 0.4; transform: translateX(16px) scale(0.97); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    .hero-card {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #161D2C;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.45);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      user-select: none;
+      flex-shrink: 0;
+      animation: cardSlideEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15, 20, 32, 0.3) 0%, rgba(10, 15, 24, 0.88) 100%);
+      transition: var(--transition-smooth);
+    }
+
+    .hero-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.65), 0 0 20px rgba(242, 106, 84, 0.2);
+    }
+
+    .hero-card.active-card {
+      border: 2px solid var(--coral-primary);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 25px var(--coral-glow);
+      transform: translateY(-6px);
+    }
+
+    .hero-card-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .hero-card-pin {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--coral-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px var(--coral-glow);
+    }
+
+    .hero-card-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 500;
+    }
+
+    .hero-card-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .hero-card-arrow-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-card:hover .hero-card-arrow-btn,
+    .hero-card.active-card .hero-card-arrow-btn {
+      background: var(--coral-primary);
+      border-color: var(--coral-primary);
+      transform: rotate(-45deg);
+    }
+
+    .hero-bottom-controls {
+      position: relative;
+      z-index: 10;
+      padding: 24px 48px 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .hero-bottom-controls {
+        padding: 16px 24px 24px 24px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
+
+    .scroll-cue {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .scroll-cue:hover {
+      color: #FFFFFF;
+    }
+
+    .scroll-cue-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bounceDown 2s infinite ease-in-out;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    .slider-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .slider-arrows-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slider-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--coral-primary);
+      color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 15px var(--coral-glow);
+    }
+
+    .slider-nav-btn:hover {
+      background: var(--coral-hover);
+      transform: scale(1.1);
+    }
+
+    .slider-counter-track {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Plus Jakarta Sans', monospace;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .slider-counter-current {
+      color: var(--coral-primary);
+      font-weight: 700;
+    }
+
+    .slider-progress-bar {
+      width: 50px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-marquee-bar {
+      position: relative;
+      z-index: 10;
+      background: #090C12;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      align-items: center;
+      animation: marqueeScroll 36s linear infinite;
+      gap: 32px;
+    }
+
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .marquee-item::after {
+      content: '•';
+      color: var(--coral-primary);
+      font-size: 1.3rem;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT SECTIONS
+       ========================================================================== */
+    .main-content {
+      background: #0D121D;
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 40px 20px;
+        gap: 60px;
+      }
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 40px auto;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--coral-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Destination Brochure Grid */
+    .brochure-filter-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .filter-pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+    }
+
+    .filter-pill-btn.active {
+      background: var(--coral-primary);
+      border-color: var(--coral-primary);
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px var(--coral-glow);
+    }
+
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+
+    @media (max-width: 480px) {
+      .destinations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dest-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .dest-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(242, 106, 84, 0.4);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(242, 106, 84, 0.15);
+    }
+
+    .dest-card-img-wrap {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: #141B29;
+    }
+
+    .dest-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .dest-card:hover .dest-card-img {
+      transform: scale(1.08);
+    }
+
+    .dest-tag-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 14, 20, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .dest-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .dest-card-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .dest-card-german {
+      font-size: 0.88rem;
+      color: var(--coral-primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .dest-travel-advice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .dest-advice-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: rgba(46, 204, 113, 0.12);
+      border: 1px solid rgba(46, 204, 113, 0.28);
+      color: #7DCEA0;
+    }
+
+    .dest-advice-badge.stay {
+      background: rgba(245, 166, 35, 0.12);
+      border-color: rgba(245, 166, 35, 0.28);
+      color: #F8C471;
+    }
+
+    .dest-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .dest-highlights-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .dest-highlight-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .dest-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 16px;
+    }
+
+    .dest-hub-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .dest-action-btn {
+      background: transparent;
+      border: 1px solid var(--coral-primary);
+      color: var(--coral-primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .dest-action-btn:hover {
+      background: var(--coral-primary);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       TRANSPORT & DEUTSCHLANDTICKET PLANNER (€63/mo)
+       ========================================================================== */
+    .dticket-hero-banner {
+      background: linear-gradient(135deg, rgba(236, 27, 45, 0.15) 0%, rgba(242, 106, 84, 0.1) 50%, rgba(18, 22, 34, 0.85) 100%);
+      border: 1px solid rgba(242, 106, 84, 0.35);
+      border-radius: var(--radius-card);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 50px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dticket-hero-banner::before {
+      content: 'D-TICKET';
+      position: absolute;
+      right: -20px;
+      bottom: -25px;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      letter-spacing: 5px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .dticket-hero-banner {
+        grid-template-columns: 1fr;
+        padding: 28px 24px;
+      }
+    }
+
+    .dticket-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--db-red);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    .dticket-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .dticket-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 22px;
+      max-width: 650px;
+    }
+
+    .dticket-features-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .dticket-feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .dticket-feat-item svg {
+      color: var(--accent-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .dticket-price-box {
+      background: rgba(11, 14, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      min-width: 240px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .dticket-price-tag {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--coral-primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .dticket-price-sub {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+    }
+
+    .btn-db-action {
+      background: var(--coral-primary);
+      color: #FFFFFF;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-db-action:hover {
+      background: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--coral-glow);
+    }
+
+    .transit-modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 22px;
+      margin-bottom: 60px;
+    }
+
+    .transit-mode-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .transit-mode-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .mode-icon-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--coral-primary);
+      margin-bottom: 20px;
+    }
+
+    .transit-mode-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .transit-mode-speed {
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .transit-mode-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .transit-mode-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+    }
+
+    .transit-mode-perks li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .transit-mode-perks li::before {
+      content: '✓';
+      color: var(--accent-green);
+      font-weight: 800;
+    }
+
+    /* Route Planner */
+    .route-planner-container {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-card);
+      padding: 36px 40px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .route-planner-container {
+        padding: 24px 20px;
+      }
+    }
+
+    .planner-controls-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 18px;
+      align-items: flex-end;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 860px) {
+      .planner-controls-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .planner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .planner-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .planner-select {
+      background: rgba(11, 14, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #FFFFFF;
+      font-size: 0.98rem;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .planner-select:focus {
+      border-color: var(--coral-primary);
+      box-shadow: 0 0 15px var(--coral-glow);
+    }
+
+    .btn-planner-swap {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      margin-bottom: 2px;
+    }
+
+    .btn-planner-swap:hover {
+      background: var(--coral-primary);
+      border-color: var(--coral-primary);
+      transform: rotate(180deg);
+    }
+
+    .preset-routes-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .preset-title {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+    }
+
+    .preset-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .preset-chip:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+    }
+
+    .route-result-card {
+      background: rgba(11, 14, 20, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .route-result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 18px;
+    }
+
+    .route-stations-display {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .route-validity-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 204, 113, 0.15);
+      border: 1px solid rgba(46, 204, 113, 0.35);
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .route-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .metric-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .metric-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .metric-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .route-recommendation-box {
+      background: rgba(242, 106, 84, 0.08);
+      border-left: 4px solid var(--coral-primary);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SCENIC RAILWAYS SHOWCASE
+       ========================================================================== */
+    .scenic-rail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .scenic-rail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: var(--transition-smooth);
+    }
+
+    .scenic-rail-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .scenic-rail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .scenic-stars {
+      letter-spacing: 2px;
+    }
+
+    .scenic-rail-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .scenic-rail-route {
+      font-size: 0.85rem;
+      color: var(--coral-primary);
+      font-weight: 600;
+    }
+
+    .scenic-rail-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .scenic-rail-tip {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .scenic-rail-tip strong {
+      color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       SEASONAL FESTIVALS & BEST TIME TO VISIT
+       ========================================================================== */
+    .festivals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .festival-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: var(--transition-smooth);
+    }
+
+    .festival-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--coral-primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .festival-season-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--coral-primary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .festival-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .festival-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .festival-highlight-badge {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       GERMAN CULINARY & REGIONAL SPECIALTIES GUIDE
+       ========================================================================== */
+    .culinary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .culinary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .culinary-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .culinary-img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .culinary-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .culinary-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .culinary-region {
+      font-size: 0.82rem;
+      color: var(--coral-primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .culinary-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       ESSENTIAL GERMAN TRAVEL PHRASEBOOK (Interactive Click-to-Copy)
+       ========================================================================== */
+    .phrasebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .phrase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .phrase-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--coral-primary);
+      transform: translateY(-2px);
+    }
+
+    .phrase-german {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .phrase-english {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .phrase-copy-icon {
+      color: var(--coral-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(242, 106, 84, 0.12);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      transition: var(--transition-smooth);
+    }
+
+    .phrase-card:hover .phrase-copy-icon {
+      background: var(--coral-primary);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       TOTAL TRIP BUDGET ESTIMATOR
+       ========================================================================== */
+    .budget-estimator-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-card);
+      padding: 36px 40px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .budget-estimator-card {
+        padding: 24px 20px;
+      }
+    }
+
+    .budget-grid-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .budget-result-display {
+      background: rgba(11, 14, 20, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .budget-top-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .budget-total-amount {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-green);
+      line-height: 1.1;
+    }
+
+    .budget-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+    }
+
+    .breakdown-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .breakdown-pill-label {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .breakdown-pill-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       ITINERARIES (Refined Alignment for Header, Pass Badge & Day Rows)
+       ========================================================================== */
+    .itineraries-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .itinerary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      transition: var(--transition-smooth);
+    }
+
+    @media (max-width: 640px) {
+      .itinerary-card {
+        padding: 24px 20px;
+      }
+    }
+
+    .itinerary-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .itinerary-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .itinerary-header-main {
+      flex: 1 1 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .itinerary-duration-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--coral-light);
+      color: var(--coral-primary);
+      border: 1px solid rgba(242, 106, 84, 0.3);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    .itinerary-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .itinerary-route-path {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .itinerary-pass-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 204, 113, 0.12);
+      border: 1px solid rgba(46, 204, 113, 0.32);
+      color: #2ECC71;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      line-height: 1.3;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+
+    .itinerary-days-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .itinerary-day-row {
+      background: rgba(11, 14, 20, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 15px 20px;
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    @media (max-width: 600px) {
+      .itinerary-day-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+
+    .day-tag {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--coral-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      line-height: 1.5;
+    }
+
+    .day-detail-text {
+      font-size: 0.94rem;
+      color: rgba(255, 255, 255, 0.86);
+      line-height: 1.55;
+    }
+
+    .day-detail-text strong {
+      color: #FFFFFF;
+    }
+
+    /* Practical Tips & FAQ */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .tip-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+
+    .tip-cat-tag {
+      font-size: 0.75rem;
+      color: var(--coral-primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .tip-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .tip-content {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 16px;
+    }
+
+    .faq-question-btn svg {
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      color: var(--coral-primary);
+    }
+
+    .faq-item.open .faq-question-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      padding: 0 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 320px;
+      padding-bottom: 20px;
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-window {
+      background: #111624;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-card);
+      width: 100%;
+      max-width: 780px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .modal-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #FFFFFF;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      background: var(--coral-primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .brochure-modal-window {
+      max-width: 950px;
+      background: #0E1320;
+    }
+
+    .printable-brochure-container {
+      background: #FFFFFF;
+      color: #1A1F2C;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .printable-brochure-container {
+        padding: 20px;
+      }
+      .brochure-two-col {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .print-brochure-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 3px solid var(--db-red);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    .print-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0F1422;
+    }
+
+    .print-actions-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    /* Footer */
+    .app-footer {
+      background: #080B10;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      border-radius: 0 0 var(--radius-hero) var(--radius-hero);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 860px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .footer-brand-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    .footer-col-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-link-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-link-item a:hover {
+      color: var(--coral-primary);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    @media print {
+      body { background: #FFFFFF !important; padding: 0 !important; }
+      .app-viewport { box-shadow: none !important; max-width: 100% !important; }
+      .hero-container, .hero-marquee-bar, .modal-header, .print-actions-bar, .app-footer, .nav-frosted-pill, .menu-pill-btn { display: none !important; }
+      .modal-overlay { position: static !important; background: transparent !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important; }
+      .printable-brochure-container { box-shadow: none !important; padding: 0 !important; }
+    }
+
+    .glow-cursor-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      user-select: none;
+      z-index: 3;
+      mix-blend-mode: screen;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app-viewport">
+
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-container" id="heroContainer">
+
+      <!-- Crossfading Background Layers (7 slides with verified photography) -->
+      <div class="hero-bg-layer active" data-slide-index="0"
+        style="background-image: url('https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="1"
+        style="background-image: url('https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="2"
+        style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="3"
+        style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="4"
+        style="background-image: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="5"
+        style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+      <div class="hero-bg-layer inactive" data-slide-index="6"
+        style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=2400&q=85');">
+      </div>
+
+      <div class="hero-overlay"></div>
+      <canvas id="glowCursorCanvas" class="glow-cursor-canvas" aria-hidden="true"></canvas>
+
+      <!-- Top Navigation -->
+      <header class="hero-header">
+        <a href="#heroContainer" class="brand-logo-circle" title="Germany Travel & Transit">
+          <span>G</span>
+        </a>
+
+        <nav class="nav-frosted-pill" id="navFrostedPill">
+          <ul class="nav-links-list" id="navLinksList">
+            <li><a href="#brochure-section" class="nav-link active">Regions</a></li>
+            <li><a href="#festivals-section" class="nav-link">Festivals</a></li>
+            <li><a href="#transport-section" class="nav-link">Rail Plan</a></li>
+            <li><a href="#calculator-section" class="nav-link">Calculators</a></li>
+            <li><a href="#culinary-section" class="nav-link">Culture</a></li>
+            <li><a href="#itineraries-section" class="nav-link">Itineraries</a></li>
+          </ul>
+
+          <div class="nav-search-expand-wrap" id="navSearchExpandWrap">
+            <button class="nav-search-btn" id="navSearchBtn" aria-label="Open search bar" title="Instant Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <input type="text" class="nav-inline-search-input" id="navInlineSearchInput"
+              placeholder="Jump to Castle, ICE, Beer, FAQ..." autocomplete="off">
+            <button class="nav-search-close-btn" id="navSearchCloseBtn" aria-label="Close search">✕</button>
+          </div>
+
+          <div class="nav-search-dropdown" id="navSearchDropdown"></div>
+        </nav>
+
+        <button class="menu-pill-btn open-brochure-modal-btn">
+          <span>Brochure</span>
+          <div class="grid-icon-9">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </header>
+
+      <!-- Hero Body -->
+      <div class="hero-body">
+        <div class="hero-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-node active" data-index="0" title="Bavaria"></div>
+          <div class="timeline-node" data-index="1" title="Berlin"></div>
+          <div class="timeline-node" data-index="2" title="Black Forest"></div>
+          <div class="timeline-node" data-index="3" title="Rhine Gorge"></div>
+          <div class="timeline-node" data-index="4" title="Hamburg"></div>
+          <div class="timeline-node" data-index="5" title="Saxony & Dresden"></div>
+          <div class="timeline-node" data-index="6" title="Romantic Road"></div>
+        </div>
+
+        <div class="hero-content-left">
+          <div class="hero-german-badge">
+            <span class="flag-strip">
+              <span></span><span></span><span></span>
+            </span>
+            <span>Federal Republic of Germany</span>
+          </div>
+
+          <h1 class="hero-title" id="heroTitle">Germany</h1>
+          <p class="hero-subtitle" id="heroSubtitle">
+            Timeless traditions, fairy-tale castles, and a unified 300 km/h national rail network connecting 16 federal states.
+          </p>
+
+          <a href="#brochure-section" class="hero-cta-btn" id="heroCtaBtn">
+            <span>Explore Germany</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-cards-deck" id="heroCardsDeck"></div>
+      </div>
+
+      <!-- Hero Bottom Controls -->
+      <div class="hero-bottom-controls">
+        <a href="#brochure-section" class="scroll-cue">
+          <div class="scroll-cue-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+          <span>Scroll to explore</span>
+        </a>
+
+        <div class="slider-controls-group">
+          <div class="slider-arrows-wrap">
+            <button class="slider-nav-btn" id="sliderPrevBtn" aria-label="Previous destination">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <button class="slider-nav-btn" id="sliderNextBtn" aria-label="Next destination">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div class="slider-counter-track">
+            <span class="slider-counter-current" id="currentSlideNum">01</span>
+            <div class="slider-progress-bar">
+              <div class="slider-progress-fill" id="sliderProgressFill"></div>
+            </div>
+            <span class="slider-counter-total" id="totalSlideNum">07</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Marquee Bar -->
+    <div class="hero-marquee-bar">
+      <div class="marquee-content" id="marqueeContent"></div>
+    </div>
+
+    <!-- ==========================================================================
+         MAIN CONTENT SECTIONS
+         ========================================================================== -->
+    <main class="main-content">
+
+      <!-- DESTINATION BROCHURE (7 Regions with Best Season & Stay Duration) -->
+      <section id="brochure-section" class="destinations-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ Official Travel Brochure</span>
+          <h2 class="section-title">Iconic Regions of Germany</h2>
+          <p class="section-desc">
+            Explore world-renowned fairy-tale castles, majestic alpine panoramas, enchanted misty forests, baroque palaces,
+            and medieval walled towns connected by seamless high-speed rail.
+          </p>
+        </div>
+
+        <div class="brochure-filter-nav">
+          <button class="filter-pill-btn active" data-region="all">All 7 Regions</button>
+          <button class="filter-pill-btn" data-region="bavaria">Bavaria</button>
+          <button class="filter-pill-btn" data-region="berlin">Berlin</button>
+          <button class="filter-pill-btn" data-region="black-forest">Black Forest</button>
+          <button class="filter-pill-btn" data-region="rhine-valley">Rhine Gorge</button>
+          <button class="filter-pill-btn" data-region="hamburg">Hamburg</button>
+          <button class="filter-pill-btn" data-region="saxony">Saxony & Dresden</button>
+          <button class="filter-pill-btn" data-region="romantic-road">Romantic Road</button>
+        </div>
+
+        <div class="destinations-grid" id="destinationsGrid"></div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <button class="btn-db-action open-brochure-modal-btn"
+            style="width: auto; padding: 14px 36px; display: inline-flex;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>View & Print Official Travel Brochure (PDF Ready)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SEASONAL FESTIVALS & BEST TIME TO VISIT -->
+      <section id="festivals-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ Annual Cultural Calendar</span>
+          <h2 class="section-title">Seasonal Festivals & Best Time to Visit</h2>
+          <p class="section-desc">Germany transforms throughout the year, from vibrant spring blossoming valleys to world-famous autumn beer festivals and magical winter Christmas markets.</p>
+        </div>
+        <div class="festivals-grid" id="festivalsGrid"></div>
+      </section>
+
+      <!-- TRANSPORT PLAN & DEUTSCHLANDTICKET (€63/mo) + SCENIC RAILWAYS -->
+      <section id="transport-section" class="transport-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ National Rail & Transit Master Plan</span>
+          <h2 class="section-title">Germany’s Transit Super-Network</h2>
+          <p class="section-desc">
+            Germany boasts the world's most integrated public transit ecosystem. Travel seamlessly between high-speed
+            300 km/h ICE trains, double-decker regional routes, and urban metro systems with unified ticketing.
+          </p>
+        </div>
+
+        <!-- Deutschlandticket Banner (€63/mo) -->
+        <div class="dticket-hero-banner">
+          <div>
+            <span class="dticket-badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+              Updated 2026/2027 Pass Rate
+            </span>
+            <h3 class="dticket-title">The Deutschlandticket (D-Ticket)</h3>
+            <p class="dticket-subtitle">
+              Enjoy <strong>unlimited regional travel</strong> across all 16 federal states on every Regional-Express (RE),
+              Regionalbahn (RB), S-Bahn, U-Bahn, tram, city bus, and harbor ferry.
+            </p>
+
+            <div class="dticket-features-row">
+              <div class="dticket-feat-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Valid on all RE / RB trains nationwide</span>
+              </div>
+              <div class="dticket-feat-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Includes all city metros, trams & buses</span>
+              </div>
+              <div class="dticket-feat-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Reaches Neuschwanstein & Rhine Gorge</span>
+              </div>
+              <div class="dticket-feat-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Adjusts to €66.80 in Jan 2027</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dticket-price-box">
+            <div class="dticket-price-tag">€63</div>
+            <div class="dticket-price-sub">per calendar month / unlimited rides</div>
+            <button class="btn-db-action"
+              onclick="document.getElementById('calculator-section').scrollIntoView({behavior:'smooth'})">
+              <span>Plan Your Route</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Transit Modes -->
+        <div class="transit-modes-grid">
+          <div class="transit-mode-card">
+            <div class="mode-icon-badge">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="3" width="16" height="16" rx="2"></rect>
+                <path d="M4 11h16"></path>
+                <path d="M12 3v8"></path>
+              </svg>
+            </div>
+            <h4 class="transit-mode-name">ICE (Intercity-Express)</h4>
+            <span class="transit-mode-speed">⚡ Speeds up to 300 km/h</span>
+            <p class="transit-mode-desc">The flagship high-speed train of DB. Ultra-smooth long-distance connections with Bordrestaurant dining and high-speed WiFi.</p>
+            <ul class="transit-mode-perks">
+              <li>Quiet Zones (Ruhebereich)</li>
+              <li>Free DB Media Portal WiFi</li>
+              <li>Power outlets at every seat</li>
+            </ul>
+          </div>
+
+          <div class="transit-mode-card">
+            <div class="mode-icon-badge">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                <circle cx="7" cy="17" r="2"></circle>
+                <circle cx="17" cy="17" r="2"></circle>
+              </svg>
+            </div>
+            <h4 class="transit-mode-name">RE & RB Regional Rail</h4>
+            <span class="transit-mode-speed">🌲 120 – 160 km/h Regional</span>
+            <p class="transit-mode-desc">Double-decker trains gliding through river valleys and alpine meadows. 100% covered by Deutschlandticket.</p>
+            <ul class="transit-mode-perks">
+              <li>100% Free with Deutschlandticket</li>
+              <li>Panoramic upper deck view</li>
+              <li>Bicycle storage carriages</li>
+            </ul>
+          </div>
+
+          <div class="transit-mode-card">
+            <div class="mode-icon-badge">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+              </svg>
+            </div>
+            <h4 class="transit-mode-name">S-Bahn & U-Bahn / City</h4>
+            <span class="transit-mode-speed">🏙️ High-frequency Urban</span>
+            <p class="transit-mode-desc">Suburban rail, underground metro, modern tramways, and harbor ferries in every major German city.</p>
+            <ul class="transit-mode-perks">
+              <li>Trains every 3 to 10 minutes</li>
+              <li>Direct airport connections</li>
+              <li>Integrated city transfers</li>
+            </ul>
+          </div>
+
+          <div class="transit-mode-card">
+            <div class="mode-icon-badge">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+              </svg>
+            </div>
+            <h4 class="transit-mode-name">Scenic & Alpine Cogwheels</h4>
+            <span class="transit-mode-speed">⛰️ Scenic Mountain Climbs</span>
+            <p class="transit-mode-desc">Historic steam locomotives and cogwheel railways scaling the Bavarian Zugspitze and Harz summits.</p>
+            <ul class="transit-mode-perks">
+              <li>Zugspitze Cogwheel line</li>
+              <li>Harz coal-fired steam trains</li>
+              <li>Dramatic mountain viaducts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Scenic Railways -->
+        <div id="scenic-section" style="margin-top: 20px;">
+          <div class="section-head" style="margin-bottom: 28px;">
+            <span class="section-eyebrow">✦ Panoramic Rail Journeys</span>
+            <h3 class="section-title" style="font-size: 2.2rem;">Germany’s Most Scenic Train Routes</h3>
+            <p class="section-desc">Experience breathtaking natural beauty through your train window, from mist-shrouded Black Forest viaducts to clifftop Rhine fortresses.</p>
+          </div>
+          <div class="scenic-rail-grid" id="scenicRailGrid"></div>
+        </div>
+      </section>
+
+      <!-- LIVE INTERACTIVE TOOLS (Route Calculator + Total Trip Budget Estimator) -->
+      <section id="calculator-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ Real-Time Planning Suite</span>
+          <h2 class="section-title">Route Calculator & Total Trip Budget Estimator</h2>
+          <p class="section-desc">Compare high-speed ICE vs. D-Ticket regional connections live, then calculate a complete vacation budget covering transit, accommodation, and daily dining.</p>
+        </div>
+
+        <!-- Interactive Route Calculator -->
+        <div class="route-planner-container">
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">
+              1. Interactive Rail Route Calculator
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Compare high-speed ICE vs regional train durations, frequencies, prices, and Deutschlandticket coverage.
+            </p>
+          </div>
+
+          <div class="preset-routes-wrap" id="presetRoutesWrap"></div>
+
+          <div class="planner-controls-bar">
+            <div class="planner-field">
+              <label class="planner-label" for="plannerFrom">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Departure Station (Start)</span>
+              </label>
+              <select id="plannerFrom" class="planner-select">
+                <option value="Berlin Hbf" selected>Berlin Hauptbahnhof</option>
+                <option value="München Hbf">München Hauptbahnhof (Munich)</option>
+                <option value="Frankfurt (Main) Hbf">Frankfurt (Main) Hauptbahnhof</option>
+                <option value="Köln Hbf (Cologne)">Köln Hauptbahnhof (Cologne)</option>
+                <option value="Hamburg Hbf">Hamburg Hauptbahnhof</option>
+                <option value="Dresden Hbf">Dresden Hauptbahnhof</option>
+              </select>
+            </div>
+
+            <div class="planner-field">
+              <label class="planner-label" for="plannerTo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Destination (Arrival)</span>
+              </label>
+              <select id="plannerTo" class="planner-select">
+                <option value="München Hbf (Munich)" selected>München Hauptbahnhof (Munich)</option>
+                <option value="Frankfurt (Main) Hbf">Frankfurt (Main) Hauptbahnhof</option>
+                <option value="Hamburg Hbf">Hamburg Hauptbahnhof</option>
+                <option value="Köln Hbf (Cologne)">Köln Hauptbahnhof (Cologne)</option>
+                <option value="Dresden Hbf">Dresden Hauptbahnhof</option>
+                <option value="Füssen (Neuschwanstein Castle)">Füssen (Neuschwanstein Castle)</option>
+                <option value="Heidelberg Hbf">Heidelberg Hauptbahnhof</option>
+              </select>
+            </div>
+
+            <button class="btn-planner-swap" id="btnSwapStations" title="Swap Origin & Destination"
+              aria-label="Swap Stations">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="m7 16 5 5 5-5"></path>
+                <path d="m17 8-5-5-5 5"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="route-result-card" id="routeResultCard"></div>
+        </div>
+
+        <!-- TOTAL TRIP BUDGET ESTIMATOR -->
+        <div id="budget-section" class="budget-estimator-card">
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">
+              2. Total Trip Cost Estimator (Transport + Stay + Food & Sightseeing)
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Adjust trip duration, group size, rail pass tier, and accommodation style to project a full German holiday budget.
+            </p>
+          </div>
+
+          <div class="budget-grid-controls">
+            <div class="planner-field">
+              <label class="planner-label" for="budgetDays">Trip Duration (Days)</label>
+              <select id="budgetDays" class="planner-select">
+                <option value="3">3 Days (Weekend City Break)</option>
+                <option value="7" selected>7 Days (Standard 1-Week Tour)</option>
+                <option value="10">10 Days (Multi-Region Grand Tour)</option>
+                <option value="14">14 Days (Two-Week Explorer)</option>
+              </select>
+            </div>
+
+            <div class="planner-field">
+              <label class="planner-label" for="budgetTravelers">Group Size</label>
+              <select id="budgetTravelers" class="planner-select">
+                <option value="1" selected>1 Person (Solo Traveler)</option>
+                <option value="2">2 People (Couple / Twin Room)</option>
+                <option value="4">4 People (Family / Group)</option>
+              </select>
+            </div>
+
+            <div class="planner-field">
+              <label class="planner-label" for="budgetStyle">Rail & Transit Tier</label>
+              <select id="budgetStyle" class="planner-select">
+                <option value="dticket" selected>Deutschlandticket (€63/mo regional)</option>
+                <option value="hybrid">Hybrid (D-Ticket + 2 ICE Hops ~€140)</option>
+                <option value="ice">First-Class ICE FlexPass (~€260)</option>
+              </select>
+            </div>
+
+            <div class="planner-field">
+              <label class="planner-label" for="budgetHotel">Accommodation & Dining Tier</label>
+              <select id="budgetHotel" class="planner-select">
+                <option value="backpacker">Hostel & Street Food (€85/day pp)</option>
+                <option value="midrange" selected>3–4★ Boutique Hotel & Dining (€165/day pp)</option>
+                <option value="luxury">5★ Heritage Palace & Fine Dining (€320/day pp)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="budget-result-display">
+            <div class="budget-top-summary">
+              <div>
+                <span class="metric-label" style="display:block; margin-bottom:4px;">Estimated Grand Total (All Travelers)</span>
+                <div class="budget-total-amount" id="budgetTotalOutput">€1,218.00</div>
+                <span id="budgetPerPersonSub" style="font-size: 0.9rem; color: var(--text-muted);">€1,218.00 per person • Complete trip estimate</span>
+              </div>
+              <button class="btn-db-action" style="width: auto; padding: 14px 28px;" onclick="document.getElementById('culinary-section').scrollIntoView({behavior:'smooth'})">
+                <span>Explore Culture & Food →</span>
+              </button>
+            </div>
+
+            <div class="budget-breakdown-grid" id="budgetBreakdownGrid">
+              <!-- Populated dynamically by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CULINARY SPECIALTIES + INTERACTIVE PHRASEBOOK + PRACTICAL TIPS -->
+      <section id="culinary-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ Taste of Germany</span>
+          <h2 class="section-title">Regional Culinary Specialties</h2>
+          <p class="section-desc">Savor the authentic flavors of Germany, paired with world-class regional wines and artisanal brewing traditions.</p>
+        </div>
+        <div class="culinary-grid" id="culinaryGrid"></div>
+      </section>
+
+      <section id="phrasebook-section">
+        <div class="section-head">
+          <span class="section-eyebrow">✦ Traveler's Quick Aid</span>
+          <h2 class="section-title">Essential German Phrasebook</h2>
+          <p class="section-desc">Tap any phrase to instantly copy it to your clipboard for quick communication at train stations, restaurants, and hotels.</p>
+        </div>
+        <div class="phrasebook-grid" id="phrasebookGrid"></div>
+      </section>
+
+      <!-- PRACTICAL TIPS & EXPANDED 6-QUESTION FAQ -->
+      <section id="practical-section" class="practical-section">
+        <div class="section-head">
+          <span class="section-eyebrow">✦ German Travel Savvy</span>
+          <h2 class="section-title">Essential Transit Tips & Etiquette</h2>
+          <p class="section-desc">Key knowledge for navigating stations, booking seats, and traveling like a local across Germany.</p>
+        </div>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-cat-tag">App & Tracking</span>
+            <h4 class="tip-title">The DB Navigator App</h4>
+            <p class="tip-content">Essential for every traveler. Shows real-time train coach formation (<em>Wagenreihung</em>) so you know exactly which letter section (A–G) on the platform your reserved carriage will halt.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-cat-tag">Onboard Etiquette</span>
+            <h4 class="tip-title">Quiet Zones (Ruhebereich)</h4>
+            <p class="tip-content">ICE trains feature dedicated quiet coaches where phone calls, loud music, and noisy chatter are strictly prohibited.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-cat-tag">Local Transit</span>
+            <h4 class="tip-title">Ticket Validation (Entwerter)</h4>
+            <p class="tip-content">Single paper metro and bus tickets must be stamped in the little red or yellow stamping box before boarding!</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-cat-tag">Luggage Storage</span>
+            <h4 class="tip-title">Station Lockers (Schließfächer)</h4>
+            <p class="tip-content">Almost every Hauptbahnhof features automatic luggage lockers costing ~€3–€6 for 24 hours during layovers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MULTI-DAY ITINERARIES + EXPANDED FAQ + PRINTABLE BROCHURE -->
+      <section id="itineraries-section" class="itineraries-section">
+        <div class="section-head">
+          <span class="section-eyebrow" style="display:block;">✦ Ready-to-Ride Journeys</span>
+          <h2 class="section-title">Curated Multi-Day Rail Itineraries</h2>
+          <p class="section-desc">
+            Complete day-by-day train routes crafted to maximize sightseeing while taking full advantage of the German rail network.
+          </p>
+        </div>
+        <div class="itineraries-wrapper" id="itinerariesWrapper"></div>
+
+        <div id="faq-section" style="margin-top: 70px;">
+          <div class="section-head" style="margin-bottom: 28px;">
+            <span class="section-eyebrow">✦ Traveler Q&A Guide</span>
+            <h3 class="section-title" style="font-size: 2.2rem;">Frequently Asked Questions</h3>
+            <p class="section-desc">Essential answers covering passes, ICE luggage rules, Sunday retail laws, and local payment customs.</p>
+          </div>
+          <div class="faq-list" id="faqContainer"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 36px; background: rgba(242, 106, 84, 0.08); border: 1px solid rgba(242, 106, 84, 0.3); border-radius: var(--radius-card);">
+          <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 10px;">Take-Home Travel Brochure</h3>
+          <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto 22px auto;">Open the clean, print-ready PDF summary sheet containing all 7 regions and the €63 Deutschlandticket rail plan.</p>
+          <button class="btn-db-action open-brochure-modal-btn" style="width: auto; padding: 14px 36px;">
+            <span>Open Printable Brochure Summary (PDF)</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-top">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div class="brand-logo-circle" style="width:40px; height:40px; font-size:1.1rem;">G</div>
+            <h3 class="footer-brand-title" style="margin:0;">Germany Travel & Transit</h3>
+          </div>
+          <p class="footer-brand-desc">
+            Your definitive travel brochure and national rail guide for exploring Germany's fairy-tale castles, alpine peaks, and cultural capitals with precision and ease.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#brochure-section">Bavaria & Neuschwanstein</a></li>
+            <li class="footer-link-item"><a href="#brochure-section">Berlin & Potsdam</a></li>
+            <li class="footer-link-item"><a href="#brochure-section">Saxony & Dresden</a></li>
+            <li class="footer-link-item"><a href="#brochure-section">Romantic Road & Rothenburg</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Transport & Tools</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#transport-section">Deutschlandticket (€63)</a></li>
+            <li class="footer-link-item"><a href="#transport-section">ICE High-Speed Trains</a></li>
+            <li class="footer-link-item"><a href="#calculator-section">Interactive Route Planner</a></li>
+            <li class="footer-link-item"><a href="#budget-section">Total Trip Budget Estimator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Emergency & Help</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><span style="color: #FFFFFF; font-weight:700;">Police:</span> 110</li>
+            <li class="footer-link-item"><span style="color: #FFFFFF; font-weight:700;">Medical/Ambulance:</span> 112</li>
+            <li class="footer-link-item"><span style="color: #FFFFFF; font-weight:700;">DB Hotline:</span> +49 30 2970</li>
+            <li class="footer-link-item"><span style="color: #FFFFFF; font-weight:700;">Currency:</span> Euro (€)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026/2027 Germany Travel Brochure & National Transport Plan. All rights reserved.</span>
+        <span>Official Travel & National Rail Guide.</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Printable Brochure Modal -->
+  <div class="modal-overlay" id="brochureModal" role="dialog" aria-modal="true">
+    <div class="modal-window brochure-modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">Official Germany Travel Brochure & Rail Guide</h3>
+        <button class="modal-close-btn" id="closeBrochureModal" aria-label="Close brochure modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="printable-brochure-container">
+          <div class="print-brochure-head">
+            <div>
+              <span style="font-size: 0.8rem; font-weight:800; letter-spacing:1.5px; color: var(--db-red); text-transform:uppercase;">
+                ✦ Official Travel Brochure & Transit Plan
+              </span>
+              <h2 class="print-title">DEUTSCHLAND • GERMANY</h2>
+              <p style="color: #555; margin-top: 4px; font-size: 0.95rem;">
+                A curated traveler's guide featuring 7 iconic regions, seasonal festivals, culinary guide, and nationwide rail network.
+              </p>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 2rem; font-weight:900; color: #111;">2026/2027</div>
+              <span style="font-size: 0.85rem; color: #777;">Includes €63 D-Ticket Guide</span>
+            </div>
+          </div>
+
+          <div class="brochure-two-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight:700; color: #0F1422; border-bottom: 2px solid #EEE; padding-bottom: 6px; margin-bottom: 12px;">
+                🏰 7 Iconic Destination Regions
+              </h3>
+              <ul style="font-size: 0.9rem; line-height: 1.7; color: #333; padding-left: 20px;">
+                <li><strong>Bavaria:</strong> Home to fairy-tale royal castles, Munich’s historic city center, and Germany’s highest alpine peak.</li>
+                <li><strong>Berlin:</strong> Where iconic landmarks like the Brandenburg Gate meet UNESCO Museum Island and modern art.</li>
+                <li><strong>Black Forest:</strong> Famous for its scenic waterfalls, relaxing thermal spas, and dense evergreen trails.</li>
+                <li><strong>Rhine Gorge:</strong> A UNESCO valley lined with medieval clifftop castles and steep hillside vineyards.</li>
+                <li><strong>Hamburg:</strong> A major maritime hub featuring historic red-brick warehouse canals and a world-famous modern concert hall.</li>
+                <li><strong>Saxony & Dresden:</strong> Known for its grand Baroque palaces and dramatic rock-formation bridges.</li>
+                <li><strong>Romantic Road:</strong> A famous scenic route connecting historic palaces to perfectly preserved medieval walled towns.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight:700; color: #0F1422; border-bottom: 2px solid #EEE; padding-bottom: 6px; margin-bottom: 12px;">
+                🚆 Transport Plan Summary
+              </h3>
+              <ul style="font-size: 0.9rem; line-height: 1.7; color: #333; padding-left: 20px;">
+                <li><strong>Deutschlandticket (€63/mo):</strong> Unlimited regional trains (RE/RB), S-Bahn, U-Bahn, and buses.</li>
+                <li><strong>ICE High-Speed Network:</strong> Speeds up to 300 km/h connecting all major hubs.</li>
+                <li><strong>Scenic Rails:</strong> Schwarzwaldbahn and Middle Rhine lines fully covered.</li>
+                <li><strong>DB Navigator App:</strong> Real-time platform tracks (<em>Gleis</em>) and carriage layouts.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="print-actions-bar">
+            <button class="btn-db-action" id="btnPrintBrochure" style="width: auto; padding: 12px 28px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              <span>Print / Save as PDF</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT APPLICATION LOGIC
+       ========================================================================== -->
+  <script>
+    /**
+     * 1. GlowCursor - WebGL2 Fluid Simulation
+     */
+    (function () {
+      const VERTEX = `#version 300 es
+in vec2 aPosition;
+uniform vec2 uTexel;
+out vec2 vUv;
+out vec2 vL;
+out vec2 vR;
+out vec2 vT;
+out vec2 vB;
+void main() {
+  vUv = aPosition * 0.5 + 0.5;
+  vL = vUv - vec2(uTexel.x, 0.0);
+  vR = vUv + vec2(uTexel.x, 0.0);
+  vT = vUv + vec2(0.0, uTexel.y);
+  vB = vUv - vec2(0.0, uTexel.y);
+  gl_Position = vec4(aPosition, 0.0, 1.0);
+}`;
+
+      const HEADER = `#version 300 es
+precision highp float;
+precision highp sampler2D;
+in vec2 vUv;
+in vec2 vL;
+in vec2 vR;
+in vec2 vT;
+in vec2 vB;
+out vec4 outColor;
+`;
+
+      const SPLAT = `${HEADER}
+uniform sampler2D uTarget;
+uniform float uAspect;
+uniform vec2 uA;
+uniform vec2 uB;
+uniform float uRadius;
+uniform float uWide;
+uniform vec3 uValue;
+uniform float uMode;
+uniform float uStrength;
+float erf(float x) {
+  float x2 = x * x;
+  float a = 0.147;
+  return sign(x) * sqrt(1.0 - exp(-x2 * (1.2732395 + a * x2) / (1.0 + a * x2)));
+}
+float sweep(float along, float length, float across, float radius) {
+  return exp(-across * across / (radius * radius)) * 0.5 * (erf(along / radius) - erf((along - length) / radius));
+}
+void main() {
+  vec2 p = vec2(vUv.x * uAspect, vUv.y);
+  vec2 a = vec2(uA.x * uAspect, uA.y);
+  vec2 ab = vec2(uB.x * uAspect, uB.y) - a;
+  float len = length(ab);
+  vec2 dir = len > 1e-6 ? ab / len : vec2(1.0, 0.0);
+  vec2 ap = p - a;
+  vec3 base = texture(uTarget, vUv).xyz;
+  if (uMode > 1.5) {
+    float along = dot(ap, dir);
+    float across = dot(ap, vec2(-dir.y, dir.x));
+    if (uMode > 2.5) {
+      outColor = vec4(mix(base, uValue, sweep(along, len, across, uRadius) * uStrength), 1.0);
+      return;
+    }
+    vec3 add = vec3(uValue.xy * sweep(along, len, across, uRadius), uValue.z * sweep(along, len, across, uWide));
+    outColor = vec4(base + add, 1.0);
+    return;
+  }
+  float h = clamp(dot(ap, ab) / max(dot(ab, ab), 1e-9), 0.0, 1.0);
+  vec2 d = ap - ab * h;
+  float r2 = dot(d, d);
+  float falloff = exp(-r2 / (uRadius * uRadius));
+  float wide = exp(-r2 / (uWide * uWide));
+  vec3 result = uMode > 0.5 ? mix(base, uValue, falloff * uStrength) : base + vec3(uValue.xy * falloff, uValue.z * wide);
+  outColor = vec4(result, 1.0);
+}`;
+
+      const ADVECT = `${HEADER}
+uniform sampler2D uVelocity;
+uniform sampler2D uSource;
+uniform vec2 uVelocityTexel;
+uniform float uDt;
+uniform vec4 uDecay;
+void main() {
+  vec2 coord = vUv - uDt * texture(uVelocity, vUv).xy * uVelocityTexel;
+  outColor = texture(uSource, coord) * uDecay;
+}`;
+
+      const SHADE = `
+uniform vec3 uColor;
+uniform vec3 uSecondary;
+uniform float uIntensity;
+uniform float uHotspot;
+vec3 shade(vec3 dye) {
+  float energy = max(dye.x, 0.0);
+  float heat = clamp(dye.y, 0.0, energy);
+  float gas = max(dye.z, 0.0);
+  float fresh = heat / max(energy, 0.0001);
+  vec3 tint = mix(uSecondary, uColor, fresh);
+  return (tint * energy + uSecondary * gas + vec3(heat * heat * 0.3 * uHotspot)) * uIntensity;
+}
+`;
+
+      const DISPLAY = `${HEADER}${SHADE}
+uniform sampler2D uDye;
+uniform sampler2D uBloom;
+uniform float uGlow;
+uniform float uGrain;
+uniform float uTime;
+uniform float uLight;
+float hash(vec2 p) {
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
+}
+void main() {
+  vec3 dye = texture(uDye, vUv).xyz;
+  vec3 light = shade(dye);
+  vec3 bloom = texture(uBloom, vUv).rgb * uGlow;
+  float edge = smoothstep(0.0, 0.02, min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y)));
+  float grain = 1.0 + (hash(gl_FragCoord.xy + fract(uTime * 13.7) * 97.0) - 0.5) * uGrain * 2.0;
+  vec3 color = 1.0 - exp(-(light + bloom) * grain);
+  color *= edge;
+  outColor = vec4(color, max(color.r, max(color.g, color.b)));
+}`;
+
+      const compile = (gl, type, source) => {
+        const shader = gl.createShader(type);
+        if (!shader) return null;
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
+        gl.deleteShader(shader);
+        return null;
+      };
+
+      window.initGlowCursorEngine = function (options = {}) {
+        const canvas = document.getElementById('glowCursorCanvas');
+        if (!canvas) return;
+        const defaults = { intensity: 1.3, linger: 1.4 };
+        const s = Object.assign({}, defaults, options);
+        const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false });
+        if (!gl || !gl.getExtension('EXT_color_buffer_float')) return;
+
+        const vertexShader = compile(gl, gl.VERTEX_SHADER, VERTEX);
+        if (!vertexShader) return;
+
+        const build = (source) => {
+          const fragment = compile(gl, gl.FRAGMENT_SHADER, source);
+          const program = gl.createProgram();
+          if (!fragment || !program) return null;
+          gl.attachShader(program, vertexShader);
+          gl.attachShader(program, fragment);
+          gl.bindAttribLocation(program, 0, 'aPosition');
+          gl.linkProgram(program);
+          gl.deleteShader(fragment);
+          const uniforms = {};
+          const count = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
+          for (let i = 0; i < count; i++) {
+            const info = gl.getActiveUniform(program, i);
+            if (info) uniforms[info.name] = gl.getUniformLocation(program, info.name);
+          }
+          return { program, uniforms };
+        };
+
+        const passes = { splat: build(SPLAT), advect: build(ADVECT), display: build(DISPLAY) };
+        const vao = gl.createVertexArray();
+        const buffer = gl.createBuffer();
+        gl.bindVertexArray(vao);
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        gl.enableVertexAttribArray(0);
+        gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+
+        const state = {
+          width: window.innerWidth, height: window.innerHeight,
+          pointer: { x: 0, y: 0 },
+          emitter: { x: 0, y: 0, px: 0, py: 0 },
+          ready: false, time: 0, targets: null
+        };
+
+        let last = 0;
+
+        const createTarget = (width, height, internalFormat, format, filter) => {
+          const texture = gl.createTexture();
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, width, height, 0, format, gl.HALF_FLOAT, null);
+          const fbo = gl.createFramebuffer();
+          gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+          gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+          return { texture, fbo, width, height, texel: [1 / width, 1 / height] };
+        };
+
+        const createPair = (width, height, internalFormat, format, filter) => {
+          let read = createTarget(width, height, internalFormat, format, filter);
+          let write = createTarget(width, height, internalFormat, format, filter);
+          return { get read() { return read; }, get write() { return write; }, swap() { const next = read; read = write; write = next; } };
+        };
+
+        const allocate = () => {
+          const aspect = state.width / state.height;
+          const dims = (base) => (aspect >= 1 ? [Math.round(base * aspect), base] : [base, Math.round(base / aspect)]);
+          const [simW, simH] = dims(160);
+          const [dyeW, dyeH] = dims(768);
+          state.targets = {
+            velocity: createPair(simW, simH, gl.RG16F, gl.RG, gl.LINEAR),
+            dye: createPair(dyeW, dyeH, gl.RGBA16F, gl.RGBA, gl.LINEAR),
+            bloom: [createTarget(Math.max(1, dyeW >> 1), Math.max(1, dyeH >> 1), gl.RGBA16F, gl.RGBA, gl.LINEAR)]
+          };
+        };
+
+        const applyResize = () => {
+          const width = Math.max(1, window.innerWidth);
+          const height = Math.max(1, window.innerHeight);
+          if (canvas.width !== width || canvas.height !== height) {
+            canvas.width = width; canvas.height = height;
+          }
+          state.width = width; state.height = height;
+          allocate();
+        };
+
+        const draw = (target) => {
+          if (target) {
+            gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo);
+            gl.viewport(0, 0, target.width, target.height);
+          } else {
+            gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+            gl.viewport(0, 0, canvas.width, canvas.height);
+          }
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+
+        const use = (pass, texel) => {
+          gl.useProgram(pass.program);
+          if (pass.uniforms.uTexel) gl.uniform2f(pass.uniforms.uTexel, texel[0], texel[1]);
+          return pass.uniforms;
+        };
+
+        const bind = (unit, target) => {
+          gl.activeTexture(gl.TEXTURE0 + unit);
+          gl.bindTexture(gl.TEXTURE_2D, target.texture);
+          return unit;
+        };
+
+        const splat = (pair, ax, ay, bx, by, radius, value, mode, strength, wide = radius) => {
+          const u = use(passes.splat, pair.read.texel);
+          gl.uniform1i(u.uTarget, bind(0, pair.read));
+          gl.uniform1f(u.uAspect, state.width / state.height);
+          gl.uniform2f(u.uA, ax / state.width, 1 - ay / state.height);
+          gl.uniform2f(u.uB, bx / state.width, 1 - by / state.height);
+          gl.uniform1f(u.uRadius, radius / state.height);
+          gl.uniform1f(u.uWide, wide / state.height);
+          gl.uniform3f(u.uValue, value[0], value[1], value[2]);
+          gl.uniform1f(u.uMode, mode);
+          gl.uniform1f(u.uStrength, strength);
+          draw(pair.write);
+          pair.swap();
+        };
+
+        const emit = () => {
+          const { emitter, pointer } = state;
+          const { dye } = state.targets;
+          emitter.px = emitter.x; emitter.py = emitter.y;
+          emitter.x = pointer.x; emitter.y = pointer.y;
+          if (Math.hypot(emitter.x - emitter.px, emitter.y - emitter.py) < 0.05) return;
+          const radius = Math.max(3, state.height / 200);
+          splat(dye, emitter.px, emitter.py, emitter.x, emitter.y, radius, [4.0, 4.0, 0.6], 2, 1, radius * 5);
+        };
+
+        const step = (dt) => {
+          const { velocity, dye } = state.targets;
+          const decay = Math.exp((-dt * 4.6) / s.linger);
+          const u = use(passes.advect, dye.read.texel);
+          gl.uniform2f(u.uVelocityTexel, velocity.read.texel[0], velocity.read.texel[1]);
+          gl.uniform1i(u.uVelocity, bind(0, velocity.read));
+          gl.uniform1i(u.uSource, bind(1, dye.read));
+          gl.uniform1f(u.uDt, dt);
+          gl.uniform4f(u.uDecay, decay, decay, decay, 1);
+          draw(dye.write);
+          dye.swap();
+        };
+
+        const frame = (now) => {
+          const dt = last ? Math.min(1 / 30, (now - last) / 1000) : 1 / 60;
+          last = now;
+          state.time += dt;
+
+          gl.bindVertexArray(vao);
+          gl.disable(gl.BLEND);
+          if (state.ready) emit();
+          step(dt);
+
+          const { dye, bloom } = state.targets;
+          const u = use(passes.display, [1 / canvas.width, 1 / canvas.height]);
+          gl.uniform1i(u.uDye, bind(0, dye.read));
+          gl.uniform1i(u.uBloom, bind(1, bloom[0]));
+          gl.uniform3f(u.uColor, 0.37, 0.55, 1);
+          gl.uniform3f(u.uSecondary, 0.25, 0.3, 1);
+          gl.uniform1f(u.uIntensity, s.intensity);
+          gl.uniform1f(u.uHotspot, 0.8);
+          gl.uniform1f(u.uGlow, 1.0);
+          gl.uniform1f(u.uGrain, 0);
+          gl.uniform1f(u.uTime, state.time);
+          gl.uniform1f(u.uLight, 0);
+          draw(null);
+
+          requestAnimationFrame(frame);
+        };
+
+        window.addEventListener('resize', applyResize);
+        window.addEventListener('pointermove', (e) => {
+          const rect = canvas.getBoundingClientRect();
+          state.pointer.x = e.clientX - rect.left;
+          state.pointer.y = e.clientY - rect.top;
+          state.ready = true;
+        }, { passive: true });
+
+        applyResize();
+        requestAnimationFrame(frame);
+      };
+    })();
+
+    /**
+     * 2. Germany Data Store
+     */
+    const GERMANY_DATA = {
+      heroSlides: [
+        {
+          id: "bavaria",
+          index: "01",
+          name: "Bavaria",
+          germanName: "Bayern",
+          tagline: "Historic Castles & Alpine Peaks",
+          subheadline: "Timeless traditions, fairy-tale castles, and unforgettable experiences.",
+          description: "Home to fairy-tale royal castles, Munich’s historic city center, and Germany’s highest alpine peak.",
+          accentTag: "Fairy-Tale Castles & Alps",
+          bestSeason: "May–Oct & Dec (Markets)",
+          stayDuration: "3–4 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Neuschwanstein Castle", "Munich Marienplatz", "Lake Königssee", "Zugspitze Peak", "Rothenburg"],
+          nearestHub: "München Hauptbahnhof"
+        },
+        {
+          id: "berlin",
+          index: "02",
+          name: "Berlin",
+          germanName: "Berlin & Brandenburg",
+          tagline: "Culture, History & Vibrant Modernity",
+          subheadline: "Monumental history, boundless creativity, and pulsating urban energy.",
+          description: "Where iconic landmarks like the Brandenburg Gate meet UNESCO Museum Island and modern art.",
+          accentTag: "Vibrant City & Heritage",
+          bestSeason: "April–October",
+          stayDuration: "3–4 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Brandenburg Gate", "Museum Island", "Reichstag Dome", "East Side Gallery", "Sanssouci Palace"],
+          nearestHub: "Berlin Hauptbahnhof"
+        },
+        {
+          id: "black-forest",
+          index: "03",
+          name: "Black Forest",
+          germanName: "Schwarzwald",
+          tagline: "Nature, Misty Trails & Thermal Spas",
+          subheadline: "Deep evergreen canopies, whispering waterfalls, and timeless artisan hamlets.",
+          description: "Famous for its scenic waterfalls, relaxing thermal spas, and dense evergreen trails.",
+          accentTag: "Nature & Spas",
+          bestSeason: "May–September",
+          stayDuration: "2–3 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Triberg Waterfalls", "Lake Titisee", "Baden-Baden Spas", "Schwarzwaldbahn", "Cuckoo Clocks"],
+          nearestHub: "Freiburg Hbf"
+        },
+        {
+          id: "rhine-valley",
+          index: "04",
+          name: "Rhine Gorge",
+          germanName: "Mittelrheintal",
+          tagline: "Cliffside Castles & Vineyards",
+          subheadline: "Steep slate vineyards, riverboats, and the world's densest cluster of medieval fortresses.",
+          description: "A UNESCO valley lined with medieval clifftop castles and steep hillside vineyards.",
+          accentTag: "River Cruises & Castles",
+          bestSeason: "May–Oct (Wine Harvest)",
+          stayDuration: "1–2 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Burg Eltz Castle", "Marksburg", "Lorelei Rock", "Cochem Reichsburg", "KD Steamers"],
+          nearestHub: "Koblenz Hbf"
+        },
+        {
+          id: "hamburg",
+          index: "05",
+          name: "Hamburg",
+          germanName: "Freie und Hansestadt",
+          tagline: "Canals, Maritime Charm & Architecture",
+          subheadline: "Maritime grandeur, historic brick canals, and cutting-edge waterfront culture.",
+          description: "A major maritime hub featuring historic red-brick warehouse canals and a world-famous modern concert hall.",
+          accentTag: "Maritime & Culture",
+          bestSeason: "May–September",
+          stayDuration: "2–3 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Speicherstadt", "Elbphilharmonie", "Harbor Ferries", "Miniatur Wunderland", "Planten un Blomen"],
+          nearestHub: "Hamburg Hbf"
+        },
+        {
+          id: "saxony",
+          index: "06",
+          name: "Saxony & Dresden",
+          germanName: "Freistaat Sachsen",
+          tagline: "Baroque Splendor & Sandstone Peaks",
+          subheadline: "Florence on the Elbe, royal art treasures, and the dramatic Bastei Bridge.",
+          description: "Known for its grand Baroque palaces and dramatic rock-formation bridges.",
+          accentTag: "Baroque & Nature",
+          bestSeason: "April–Oct & Dec",
+          stayDuration: "2–3 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Zwinger Palace", "Semperoper Opera", "Bastei Bridge", "Leipzig St. Thomas", "Green Vault Museum"],
+          nearestHub: "Dresden Hauptbahnhof"
+        },
+        {
+          id: "romantic-road",
+          index: "07",
+          name: "Romantic Road",
+          germanName: "Romantische Straße",
+          tagline: "Timeless Walled Towns & Timbered Charm",
+          subheadline: "Journey through medieval archways, cobblestone alleys, and imperial palaces.",
+          description: "A famous scenic route connecting historic palaces to perfectly preserved medieval walled towns.",
+          accentTag: "Medieval Villages",
+          bestSeason: "April–October",
+          stayDuration: "2–3 Days Recommended",
+          cardImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=85",
+          highlights: ["Rothenburg Altstadt", "Würzburg Residenz", "Dinkelsbühl", "Füssen Alpine Terminus", "Tauber Valley"],
+          nearestHub: "Würzburg Hbf"
+        }
+      ],
+
+      marqueeItems: [
+        "Scenic High-Speed ICE Railway (300 km/h)",
+        "Fairy-Tale Neuschwanstein Castle",
+        "Deutschlandticket Unlimited Pass (€63/mo)",
+        "Romantic Rhine River Gorge & Lorelei",
+        "Bavarian Alpine Panoramas & Zugspitze",
+        "UNESCO Speicherstadt Canals",
+        "Saxony Dresden Baroque & Bastei Bridge",
+        "Rothenburg Medieval Walled Old Town",
+        "Black Forest Cuckoo Clocks & Thermal Spas"
+      ],
+
+      scenicRoutes: [
+        {
+          id: "black-forest-railway",
+          title: "The Black Forest Railway (Schwarzwaldbahn)",
+          route: "Offenburg ⇄ Hausach ⇄ Triberg ⇄ Konstanz",
+          duration: "2h 15m",
+          highlights: "Climbs 650 meters, traverses 39 dark tunnels through fir-clad valleys, double-loop engineering marvel.",
+          trainType: "Regional-Express (RE 2)",
+          scenicRating: "⭐⭐⭐⭐⭐",
+          tip: "Sit on the right side heading south for dramatic gorge panoramas near Triberg."
+        },
+        {
+          id: "middle-rhine-valley",
+          title: "The Middle Rhine Gorge Valley Line",
+          route: "Koblenz ⇄ Boppard ⇄ St. Goar ⇄ Mainz",
+          duration: "55m",
+          highlights: "Runs directly alongside the Rhine River, passing over 20 medieval clifftop castles and Lorelei Rock.",
+          trainType: "Mittelrheinbahn (RB 26)",
+          scenicRating: "⭐⭐⭐⭐⭐",
+          tip: "Take left-bank train southbound for breathtaking riverboat and fortress views."
+        },
+        {
+          id: "saxon-switzerland",
+          title: "Saxon Switzerland Elbe Valley Line",
+          route: "Dresden Hbf ⇄ Kurort Rathen ⇄ Schöna",
+          duration: "35m",
+          highlights: "Glides along the Elbe river gorge past towering sandstone pillar mountains and medieval fortresses.",
+          trainType: "S-Bahn S1",
+          scenicRating: "⭐⭐⭐⭐⭐",
+          tip: "Get off at Kurort Rathen to hike across the iconic Bastei Bridge."
+        },
+        {
+          id: "bavarian-alps-mittenwald",
+          title: "Bavarian Alpine & Karwendel Line",
+          route: "München Hbf ⇄ Garmisch ⇄ Mittenwald",
+          duration: "1h 45m",
+          highlights: "Spectacular approaches to the sheer rock faces of the Zugspitze and Karwendel ranges.",
+          trainType: "Werdenfelsbahn (RB 6)",
+          scenicRating: "⭐⭐⭐⭐⭐",
+          tip: "Pair with the Zugspitzbahn cogwheel train to reach Germany's highest peak (2,962m)."
+        }
+      ],
+
+      routePlannerMatrix: [
+        {
+          from: "Berlin Hbf",
+          to: "München Hbf (Munich)",
+          iceTime: "3h 55m",
+          reTime: "8h 20m (2 transfers)",
+          distance: "623 km",
+          frequency: "Every 60 mins",
+          icePrice: "From €29.99 (Sparpreis)",
+          recommended: "ICE Sprinter for speed; stop at Nuremberg Hbf for castle & gingerbread!"
+        },
+        {
+          from: "Frankfurt (Main) Hbf",
+          to: "München Hbf (Munich)",
+          iceTime: "3h 12m",
+          reTime: "7h 10m",
+          distance: "392 km",
+          frequency: "Every 30 mins",
+          icePrice: "From €24.99",
+          recommended: "Direct ICE through Spessart forest."
+        },
+        {
+          from: "Hamburg Hbf",
+          to: "Köln Hbf (Cologne)",
+          iceTime: "3h 50m",
+          reTime: "7h 30m",
+          distance: "411 km",
+          frequency: "Every 30 mins",
+          icePrice: "From €21.99",
+          recommended: "Smooth northern corridor across Lower Saxony."
+        },
+        {
+          from: "Berlin Hbf",
+          to: "Dresden Hbf",
+          iceTime: "1h 55m",
+          reTime: "2h 15m (Direct RE)",
+          distance: "193 km",
+          frequency: "Every 60 mins",
+          icePrice: "From €17.90",
+          dTicketValid: "RE 100% Free on D-Ticket!",
+          recommended: "Take the direct Regional-Express — it's almost as fast as ICE and fully free on D-Ticket!"
+        },
+        {
+          from: "München Hbf",
+          to: "Füssen (Neuschwanstein Castle)",
+          iceTime: "N/A",
+          reTime: "2h 04m (Direct)",
+          distance: "132 km",
+          frequency: "Every 60 mins",
+          icePrice: "From €27.00",
+          recommended: "Direct BRB train. Bus 73/78 to castle is also D-Ticket valid!"
+        }
+      ],
+
+      festivals: [
+        { season: "Spring (Frühling)", title: "Bonn Cherry Blossom Avenue", desc: "Heerstraße in Bonn transforms into a breathtaking pink floral canopy every April.", badge: "April – May" },
+        { season: "Summer (Sommer)", title: "Rhine in Flames (Rhein in Flammen)", desc: "Spectacular synchronized fireworks illuminate clifftop castles and river steamers.", badge: "May – September" },
+        { season: "Autumn (Herbst)", title: "Munich Oktoberfest", desc: "The world's largest folk and beer festival celebrating Bavarian culture, pretzels, and music.", badge: "Late Sept – Oct" },
+        { season: "Winter (Winter)", title: "Nuremberg & Dresden Christmas Markets", desc: "Historic Christkindlmärkte with gingerbread (Lebkuchen), mulled wine (Glühwein), and festive carols.", badge: "Late Nov – Dec 24" }
+      ],
+
+      culinary: [
+        { name: "Bavarian Weißwurst & Brezel", region: "Bavaria (München)", desc: "Traditional veal sausage served with sweet mustard, freshly baked soft pretzel, and wheat beer.", img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" },
+        { name: "Berlin Currywurst", region: "Berlin", desc: "Sliced pork sausage seasoned with spiced ketchup curry powder, accompanied by french fries.", img: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=600&q=80" },
+        { name: "Schwarzwälder Kirschtorte", region: "Black Forest", desc: "Rich chocolate sponge cake layered with whipped cream, cherries, and authentic Schwarzwälder Kirschwasser.", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" },
+        { name: "Rhine & Mosel Riesling Wine", region: "Rhine Gorge & Moselle", desc: "World-renowned crisp, aromatic white wines harvested from steep slate hillside vineyards.", img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" }
+      ],
+
+      phrasebook: [
+        { de: "Guten Tag!", en: "Hello / Good day" },
+        { de: "Bitte schön / Danke schön", en: "You're welcome / Thank you very much" },
+        { de: "Wo ist Gleis 4?", en: "Where is platform 4?" },
+        { de: "Eine Fahrkarte nach Berlin, bitte", en: "One ticket to Berlin, please" },
+        { de: "Zahlen, bitte!", en: "Check / Bill, please!" },
+        { de: "Prost!", en: "Cheers!" },
+        { de: "Entschuldigung, sprechen Sie Englisch?", en: "Excuse me, do you speak English?" },
+        { de: "Stimmt so.", en: "Keep the change (Tipping)" }
+      ],
+
+      itineraries: [
+        {
+          id: "itinerary-bavaria",
+          title: "7-Day Imperial Castles & Alpine Wonders",
+          route: "Munich → Füssen (Neuschwanstein) → Garmisch & Zugspitze → Berchtesgaden → Nuremberg",
+          days: 7,
+          transportPass: "Deutschlandticket (€63 covers 100% of regional train legs!)",
+          overview: "Experience fairy-tale castles, glacial alpine lakes, medieval walled towns, and Bavarian hospitality.",
+          schedule: [
+            { day: "Day 1", title: "Munich: Palaces & Beer Gardens", details: "Explore Marienplatz, Residenz Palace, English Garden. Transit: S-Bahn / U-Bahn." },
+            { day: "Day 2", title: "Neuschwanstein & Hohenschwangau", details: "Direct BRB train to Füssen (2h), then local bus to King Ludwig’s fairy-tale castle." },
+            { day: "Day 3", title: "Garmisch-Partenkirchen & Zugspitze", details: "RB train to Garmisch (1h 20m). Cogwheel train to Germany’s highest point at 2,962m." },
+            { day: "Day 4", title: "Emerald Waters of Lake Königssee", details: "Morning train to Berchtesgaden (2h 30m). Whisper boat ride to St. Bartholomä." },
+            { day: "Day 5", title: "Berchtesgaden Salt Mines & Kehlsteinhaus", details: "Historic salt mine wooden slides and alpine meadows." },
+            { day: "Day 6", title: "Medieval Imperial Nuremberg", details: "RE train to Nuremberg (1h 10m). Tour the Imperial Castle and Albrecht Dürer house." },
+            { day: "Day 7", title: "Rothenburg ob der Tauber & Return", details: "Scenic local train relay to the world-famous medieval walled village." }
+          ]
+        },
+        {
+          id: "itinerary-saxon",
+          title: "5-Day Saxon Baroque & Elbe Sandstone Tour",
+          route: "Berlin → Leipzig → Dresden → Bastei Bridge → Berlin",
+          days: 5,
+          transportPass: "Deutschlandticket (€63/mo pass)",
+          overview: "A cultural deep dive into Bach's Leipzig, Dresden's royal palaces, and Saxon Switzerland's towering rock bridges.",
+          schedule: [
+            { day: "Day 1", title: "Berlin to Leipzig", details: "1h 15m train to Leipzig. St. Thomas Church (Bach's tomb) and historic pub crawl." },
+            { day: "Day 2", title: "Leipzig to Dresden", details: "Explore Dresden Zwinger Baroque Palace, Dresden Green Vault, and Semperoper." },
+            { day: "Day 3", title: "Saxon Switzerland Bastei Bridge", details: "35m S-Bahn S1 to Kurort Rathen. Hike across the dramatic sandstone bridge." },
+            { day: "Day 4", title: "Meissen Porcelain Castle & Elbe Cruise", details: "Short regional train to Meissen, birthplace of European porcelain." },
+            { day: "Day 5", title: "Return via Berlin", details: "High-speed ICE or RE back to Berlin Hauptbahnhof." }
+          ]
+        }
+      ],
+
+      faq: [
+        {
+          q: "1. What is the current price of the Deutschlandticket?",
+          a: "The Deutschlandticket is priced at €63 per calendar month, offering unlimited regional travel nationwide. An adjustment to €66.80 is scheduled starting January 1, 2027."
+        },
+        {
+          q: "2. Can international tourists buy the Deutschlandticket?",
+          a: "Yes! There is no requirement to be a German citizen. You can purchase it digitally through the DB Navigator app or regional transit apps (like MVGO or RMV) using any international credit card."
+        },
+        {
+          q: "3. Do I need to reserve seats on German trains?",
+          a: "Seat reservations (~€5.20) are optional but recommended on high-speed ICE trains during peak holiday weekends. Regional trains (RE, RB) do not accept or require reservations."
+        },
+        {
+          q: "4. What are the luggage rules and storage options on ICE trains?",
+          a: "Unlike airlines, Deutsche Bahn has no strict weight limits or extra baggage fees—you simply must be able to carry your own bags onboard. Large suitcases fit in dedicated luggage racks near carriage doors or between seat backs, while carry-ons go overhead."
+        },
+        {
+          q: "5. Are shops and supermarkets open on Sundays (Ladenschlussgesetz)?",
+          a: "No! Under Germany's strict Sunday rest laws (Ruhetag / Ladenschlussgesetz), virtually all supermarkets, clothing boutiques, and malls are closed on Sundays. However, restaurants, museums, bakeries (morning hours), and shops inside major train stations (Hauptbahnhöfe) remain open."
+        },
+        {
+          q: "6. How do tipping and cash vs. card payments work in Germany?",
+          a: "While contactless cards (Visa/Mastercard) are widely accepted in cities and trains, smaller bakeries, beer gardens, and rural cafés often require cash ('Nur Barzahlung'). For tipping, round up the bill by 5–10% directly when paying the server (say 'Stimmt so' for exact change) rather than leaving coins on the table."
+        }
+      ]
+    };
+
+    /**
+     * 3. Application Logic & UI Bindings
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof window.initGlowCursorEngine === 'function') {
+        window.initGlowCursorEngine({ intensity: 1.3, linger: 1.4 });
+      }
+
+      initHeroSlider();
+      initMarquee();
+      initNavbarSearch();
+      initBrochureSection();
+      initTransportPlanner();
+      initScenicRailways();
+      initFestivalsSection();
+      initCulinarySection();
+      initPhrasebookSection();
+      initBudgetEstimator();
+      initItineraries();
+      initFaqAccordion();
+      initBrochureModal();
+      initSmoothScroll();
+    });
+
+    // Hero Slider
+    let currentSlideIndex = 0;
+    let slideInterval = null;
+    const slides = GERMANY_DATA.heroSlides;
+
+    function initHeroSlider() {
+      const totalNumEl = document.getElementById('totalSlideNum');
+      const prevBtn = document.getElementById('sliderPrevBtn');
+      const nextBtn = document.getElementById('sliderNextBtn');
+      const timelineNodes = document.querySelectorAll('.timeline-node');
+
+      if (!totalNumEl) return;
+      totalNumEl.textContent = String(slides.length).padStart(2, '0');
+
+      updateSlide(0, false);
+
+      prevBtn.addEventListener('click', () => { navigateSlide(-1); resetAutoPlay(); });
+      nextBtn.addEventListener('click', () => { navigateSlide(1); resetAutoPlay(); });
+
+      timelineNodes.forEach((node) => {
+        node.addEventListener('click', () => {
+          const idx = parseInt(node.getAttribute('data-index'), 10);
+          if (!isNaN(idx) && idx !== currentSlideIndex) {
+            updateSlide(idx, true);
+            resetAutoPlay();
+          }
+        });
+      });
+
+      startAutoPlay();
+    }
+
+    function navigateSlide(dir) {
+      let ni = currentSlideIndex + dir;
+      if (ni >= slides.length) ni = 0;
+      if (ni < 0) ni = slides.length - 1;
+      updateSlide(ni, true);
+    }
+
+    function updateSlide(index, animate = true) {
+      currentSlideIndex = index;
+      const slide = slides[index];
+
+      document.querySelectorAll('.hero-bg-layer').forEach((layer) => {
+        const lIdx = parseInt(layer.getAttribute('data-slide-index'), 10);
+        if (lIdx === index) {
+          layer.classList.add('active');
+          layer.classList.remove('inactive');
+        } else {
+          layer.classList.remove('active');
+          layer.classList.add('inactive');
+        }
+      });
+
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSubtitle = document.getElementById('heroSubtitle');
+      const heroCtaBtn = document.getElementById('heroCtaBtn');
+
+      if (animate) {
+        heroTitle.style.opacity = '0';
+        heroSubtitle.style.opacity = '0';
+        setTimeout(() => {
+          heroTitle.textContent = slide.name === 'Bavaria' ? 'Germany' : slide.name;
+          heroSubtitle.textContent = slide.subheadline;
+          heroCtaBtn.querySelector('span').textContent = `Explore ${slide.name}`;
+          heroTitle.style.opacity = '1';
+          heroSubtitle.style.opacity = '1';
+        }, 90);
+      } else {
+        heroTitle.textContent = slide.name === 'Bavaria' ? 'Germany' : slide.name;
+        heroSubtitle.textContent = slide.subheadline;
+        heroCtaBtn.querySelector('span').textContent = `Explore ${slide.name}`;
+      }
+
+      document.querySelectorAll('.timeline-node').forEach((node, idx) => {
+        if (idx === index) node.classList.add('active');
+        else node.classList.remove('active');
+      });
+
+      document.getElementById('currentSlideNum').textContent = String(index + 1).padStart(2, '0');
+      renderHeroCards(index);
+    }
+
+    function renderHeroCards(activeIndex) {
+      const deck = document.getElementById('heroCardsDeck');
+      if (!deck) return;
+      deck.innerHTML = '';
+
+      const cardIndices = [activeIndex, (activeIndex + 1) % slides.length, (activeIndex + 2) % slides.length];
+
+      cardIndices.forEach((idx, pos) => {
+        const item = slides[idx];
+        const isFront = pos === 0;
+
+        const card = document.createElement('div');
+        card.className = `hero-card ${isFront ? 'active-card' : ''}`;
+        card.style.backgroundImage = `url('${item.cardImage}')`;
+
+        card.innerHTML = `
+          <div class="hero-card-header">
+            <div class="hero-card-pin">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="hero-card-meta">
+              <span class="hero-card-name">${item.name}</span>
+              <span class="hero-card-subtitle">${item.tagline}</span>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-card-arrow-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (!isFront) {
+            updateSlide(idx, true);
+            resetAutoPlay();
+          } else {
+            document.getElementById('brochure-section').scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+
+        deck.appendChild(card);
+      });
+    }
+
+    function startAutoPlay() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(() => { navigateSlide(1); }, 4500);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(slideInterval);
+      startAutoPlay();
+    }
+
+    // Marquee
+    function initMarquee() {
+      const mc = document.getElementById('marqueeContent');
+      if (!mc) return;
+      const items = GERMANY_DATA.marqueeItems;
+      mc.innerHTML = [...items, ...items].map(t => `<span class="marquee-item">${t}</span>`).join('');
+    }
+
+    // Destinations Brochure with Region Filter + Best Season & Stay Duration
+    function initBrochureSection() {
+      const filterBtns = document.querySelectorAll('.filter-pill-btn');
+      renderDestinationCards('all');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderDestinationCards(btn.getAttribute('data-region'));
+        });
+      });
+    }
+
+    function renderDestinationCards(regionFilter) {
+      const grid = document.getElementById('destinationsGrid');
+      if (!grid) return;
+
+      const mapping = {
+        'bavaria': 'Bavaria',
+        'berlin': 'Berlin',
+        'black-forest': 'Black Forest',
+        'rhine-valley': 'Rhine Gorge',
+        'hamburg': 'Hamburg',
+        'saxony': 'Saxony & Dresden',
+        'romantic-road': 'Romantic Road'
+      };
+
+      const items = GERMANY_DATA.heroSlides.filter(d => {
+        if (regionFilter === 'all') return true;
+        return d.name.toLowerCase().includes(mapping[regionFilter]?.toLowerCase() || '');
+      });
+
+      grid.innerHTML = items.map(dest => `
+        <div class="dest-card">
+          <div class="dest-card-img-wrap">
+            <img class="dest-card-img" src="${dest.cardImage}" alt="${dest.name}" loading="lazy">
+            <span class="dest-tag-badge">${dest.accentTag}</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-card-title">${dest.name}</h3>
+            <span class="dest-card-german">${dest.germanName}</span>
+            <div class="dest-travel-advice-row">
+              <span class="dest-advice-badge">☀️ Best: ${dest.bestSeason}</span>
+              <span class="dest-advice-badge stay">🕒 ${dest.stayDuration}</span>
+            </div>
+            <p class="dest-card-desc">${dest.description}</p>
+            <div class="dest-highlights-list">
+              ${dest.highlights.map(h => `<span class="dest-highlight-chip">${h}</span>`).join('')}
+            </div>
+            <div class="dest-card-footer">
+              <div class="dest-hub-info">
+                <span>🚆 Hub: ${dest.nearestHub}</span>
+              </div>
+              <button class="dest-action-btn" onclick="selectDestinationRoute('${dest.name}')">Plan Train →</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Transport Planner
+    function initTransportPlanner() {
+      const fromSel = document.getElementById('plannerFrom');
+      const toSel = document.getElementById('plannerTo');
+      const swapBtn = document.getElementById('btnSwapStations');
+      const presets = document.getElementById('presetRoutesWrap');
+
+      if (!fromSel || !toSel) return;
+
+      presets.innerHTML = `<span class="preset-title">Popular Routes:</span>` +
+        GERMANY_DATA.routePlannerMatrix.map((r, idx) => `
+          <button class="preset-chip" onclick="loadPresetRoute(${idx})">${r.from.split(' ')[0]} ⇄ ${r.to.split(' ')[0]}</button>
+        `).join('');
+
+      fromSel.addEventListener('change', updateRouteCalculation);
+      toSel.addEventListener('change', updateRouteCalculation);
+      swapBtn.addEventListener('click', () => {
+        const temp = fromSel.value;
+        fromSel.value = toSel.value;
+        toSel.value = temp;
+        updateRouteCalculation();
+      });
+
+      updateRouteCalculation();
+    }
+
+    window.loadPresetRoute = function(idx) {
+      const r = GERMANY_DATA.routePlannerMatrix[idx];
+      document.getElementById('plannerFrom').value = r.from;
+      document.getElementById('plannerTo').value = r.to;
+      updateRouteCalculation();
+    };
+
+    window.selectDestinationRoute = function(name) {
+      document.getElementById('calculator-section').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    function updateRouteCalculation() {
+      const f = document.getElementById('plannerFrom').value;
+      const t = document.getElementById('plannerTo').value;
+      const card = document.getElementById('routeResultCard');
+      if (!card) return;
+
+      let m = GERMANY_DATA.routePlannerMatrix.find(r => (r.from === f && r.to === t) || (r.from === t && r.to === f));
+      if (!m) {
+        m = { from: f, to: t, iceTime: '3h 10m (ICE)', reTime: '5h 40m (RE)', distance: '340 km', frequency: 'Every 60 mins', icePrice: 'From €22.99', recommended: 'Check DB Navigator for live platform tracks.' };
+      }
+
+      card.innerHTML = `
+        <div class="route-result-header">
+          <div class="route-stations-display"><span>${f}</span> → <span>${t}</span></div>
+          <div class="route-validity-pill"><span>Deutschlandticket Eligible on RE legs</span></div>
+        </div>
+        <div class="route-metrics-grid">
+          <div class="metric-box"><span class="metric-label">High-Speed ICE</span><span class="metric-val" style="color:#F26A54;">${m.iceTime}</span><span class="metric-sub">${m.icePrice}</span></div>
+          <div class="metric-box"><span class="metric-label">Regional Train (RE)</span><span class="metric-val" style="color:#2ECC71;">${m.reTime}</span><span class="metric-sub">100% Free on D-Ticket</span></div>
+          <div class="metric-box"><span class="metric-label">Distance</span><span class="metric-val">${m.distance}</span><span class="metric-sub">Direct rail route</span></div>
+          <div class="metric-box"><span class="metric-label">Frequency</span><span class="metric-val">${m.frequency}</span><span class="metric-sub">High reliability</span></div>
+        </div>
+        <div class="route-recommendation-box"><strong>Transit Tip:</strong> ${m.recommended}</div>
+      `;
+    }
+
+    // Scenic Railways
+    function initScenicRailways() {
+      const c = document.getElementById('scenicRailGrid');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.scenicRoutes.map(r => `
+        <div class="scenic-rail-card">
+          <div class="scenic-rail-header"><span class="scenic-stars">${r.scenicRating}</span><span class="dest-tag-badge" style="position:static;">${r.trainType}</span></div>
+          <h4 class="scenic-rail-title">${r.title}</h4>
+          <span class="scenic-rail-route">${r.route}</span>
+          <p class="scenic-rail-desc">${r.highlights}</p>
+          <div class="scenic-rail-tip"><strong>Panorama Tip:</strong> ${r.tip}</div>
+        </div>
+      `).join('');
+    }
+
+    // Festivals
+    function initFestivalsSection() {
+      const c = document.getElementById('festivalsGrid');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.festivals.map(f => `
+        <div class="festival-card">
+          <span class="festival-season-tag">${f.season}</span>
+          <h4 class="festival-title">${f.title}</h4>
+          <p class="festival-desc">${f.desc}</p>
+          <span class="festival-highlight-badge">📅 ${f.badge}</span>
+        </div>
+      `).join('');
+    }
+
+    // Culinary
+    function initCulinarySection() {
+      const c = document.getElementById('culinaryGrid');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.culinary.map(d => `
+        <div class="culinary-card">
+          <img class="culinary-img" src="${d.img}" alt="${d.name}" loading="lazy">
+          <div class="culinary-body">
+            <h4 class="culinary-name">${d.name}</h4>
+            <span class="culinary-region">${d.region}</span>
+            <p class="culinary-desc">${d.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Phrasebook (Click to Copy)
+    function initPhrasebookSection() {
+      const c = document.getElementById('phrasebookGrid');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.phrasebook.map(p => `
+        <div class="phrase-card" onclick="copyPhrase(this, '${p.de}')">
+          <div>
+            <div class="phrase-german">${p.de}</div>
+            <div class="phrase-english">${p.en}</div>
+          </div>
+          <span class="phrase-copy-icon">Copy 📋</span>
+        </div>
+      `).join('');
+    }
+
+    window.copyPhrase = function(el, text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      } else {
+        const tmp = document.createElement('textarea');
+        tmp.value = text;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+      }
+      const badge = el.querySelector('.phrase-copy-icon');
+      if (badge) {
+        const orig = badge.textContent;
+        badge.textContent = 'Copied! ✓';
+        badge.style.background = '#2ECC71';
+        badge.style.color = '#FFFFFF';
+        setTimeout(() => {
+          badge.textContent = orig;
+          badge.style.background = '';
+          badge.style.color = '';
+        }, 1400);
+      }
+    };
+
+    // Total Trip Budget Estimator
+    function initBudgetEstimator() {
+      const daysSel = document.getElementById('budgetDays');
+      const travSel = document.getElementById('budgetTravelers');
+      const styleSel = document.getElementById('budgetStyle');
+      const hotelSel = document.getElementById('budgetHotel');
+      const out = document.getElementById('budgetTotalOutput');
+      const subOut = document.getElementById('budgetPerPersonSub');
+      const breakdownGrid = document.getElementById('budgetBreakdownGrid');
+
+      if (!daysSel) return;
+
+      function calcBudget() {
+        const days = parseInt(daysSel.value, 10);
+        const trav = parseInt(travSel.value, 10);
+        const style = styleSel.value;
+        const hotelTier = hotelSel.value;
+
+        let railPerPerson = 63; // D-Ticket €63/mo
+        if (style === 'hybrid') railPerPerson = 140;
+        if (style === 'ice') railPerPerson = 260;
+
+        let dailyStayPerPerson = 115; // Midrange hotel share
+        let dailyFoodSightPerPerson = 50; // Midrange food & museum entry
+        if (hotelTier === 'backpacker') {
+          dailyStayPerPerson = 50;
+          dailyFoodSightPerPerson = 35;
+        } else if (hotelTier === 'luxury') {
+          dailyStayPerPerson = 225;
+          dailyFoodSightPerPerson = 95;
+        }
+
+        const totalRail = railPerPerson * trav;
+        const totalStay = dailyStayPerPerson * days * trav;
+        const totalFoodSight = dailyFoodSightPerPerson * days * trav;
+        const grandTotal = totalRail + totalStay + totalFoodSight;
+        const perPerson = Math.round(grandTotal / trav);
+
+        out.textContent = `€${grandTotal.toLocaleString()}.00`;
+        subOut.textContent = `€${perPerson.toLocaleString()}.00 per person • ${days} days for ${trav} ${trav === 1 ? 'traveler' : 'travelers'}`;
+
+        breakdownGrid.innerHTML = `
+          <div class="breakdown-pill">
+            <span class="breakdown-pill-label">🚆 Rail & Transit Pass</span>
+            <span class="breakdown-pill-val" style="color: #F26A54;">€${totalRail.toLocaleString()}</span>
+          </div>
+          <div class="breakdown-pill">
+            <span class="breakdown-pill-label">🏨 Accommodation (${days} Nights)</span>
+            <span class="breakdown-pill-val">€${totalStay.toLocaleString()}</span>
+          </div>
+          <div class="breakdown-pill">
+            <span class="breakdown-pill-label">🥨 Dining & Sightseeing</span>
+            <span class="breakdown-pill-val">€${totalFoodSight.toLocaleString()}</span>
+          </div>
+          <div class="breakdown-pill">
+            <span class="breakdown-pill-label">👤 Per-Person Average</span>
+            <span class="breakdown-pill-val" style="color: #2ECC71;">€${perPerson.toLocaleString()}</span>
+          </div>
+        `;
+      }
+
+      daysSel.addEventListener('change', calcBudget);
+      travSel.addEventListener('change', calcBudget);
+      styleSel.addEventListener('change', calcBudget);
+      hotelSel.addEventListener('change', calcBudget);
+      calcBudget();
+    }
+
+    // Itineraries (Clean Aligned Markup)
+    function initItineraries() {
+      const c = document.getElementById('itinerariesWrapper');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.itineraries.map(i => `
+        <div class="itinerary-card">
+          <div class="itinerary-header">
+            <div class="itinerary-header-main">
+              <span class="itinerary-duration-badge">${i.days} Days Tour</span>
+              <h3 class="itinerary-title">${i.title}</h3>
+              <p class="itinerary-route-path">${i.route}</p>
+            </div>
+            <div class="itinerary-pass-pill">🚆 ${i.transportPass}</div>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:16px;">${i.overview}</p>
+          <div class="itinerary-days-accordion">
+            ${i.schedule.map(s => `
+              <div class="itinerary-day-row">
+                <span class="day-tag">${s.day}</span>
+                <div class="day-detail-text"><strong>${s.title}</strong>: ${s.details}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // FAQ (6 Questions)
+    function initFaqAccordion() {
+      const c = document.getElementById('faqContainer');
+      if (!c) return;
+      c.innerHTML = GERMANY_DATA.faq.map((f, idx) => `
+        <div class="faq-item ${idx === 0 ? 'open' : ''}">
+          <button class="faq-question-btn">
+            <span>${f.q}</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>${f.a}</p></div>
+        </div>
+      `).join('');
+
+      c.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question-btn').addEventListener('click', () => {
+          const open = item.classList.contains('open');
+          c.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+          if (!open) item.classList.add('open');
+        });
+      });
+    }
+
+    // Instant Search Index & Dropdown
+    function initNavbarSearch() {
+      const navPill = document.getElementById('navFrostedPill');
+      const searchBtn = document.getElementById('navSearchBtn');
+      const input = document.getElementById('navInlineSearchInput');
+      const closeBtn = document.getElementById('navSearchCloseBtn');
+      const dropdown = document.getElementById('navSearchDropdown');
+
+      if (!searchBtn) return;
+
+      const searchIndex = [
+        ...GERMANY_DATA.heroSlides.map(r => ({
+          type: 'Region',
+          title: r.name,
+          sub: `${r.tagline} • ${r.bestSeason}`,
+          keywords: `${r.name} ${r.germanName} ${r.tagline} ${r.description} ${r.highlights.join(' ')} castle alps`,
+          target: '#brochure-section'
+        })),
+        ...GERMANY_DATA.festivals.map(f => ({
+          type: 'Festival',
+          title: f.title,
+          sub: `${f.season} • ${f.badge}`,
+          keywords: `${f.title} ${f.season} ${f.desc} beer oktoberfest christmas market cherry blossom`,
+          target: '#festivals-section'
+        })),
+        {
+          type: 'Rail Pass',
+          title: 'Deutschlandticket (€63/mo)',
+          sub: 'Unlimited regional RE/RB, S-Bahn, U-Bahn & buses nationwide',
+          keywords: 'deutschlandticket d-ticket 63 euro pass ticket regional train',
+          target: '#transport-section'
+        },
+        {
+          type: 'High-Speed Rail',
+          title: 'ICE Intercity-Express (300 km/h)',
+          sub: 'High-speed long-distance rail with Quiet Zones & WiFi',
+          keywords: 'ice high speed train 300 kmh deutsche bahn db',
+          target: '#transport-section'
+        },
+        ...GERMANY_DATA.scenicRoutes.map(s => ({
+          type: 'Scenic Railway',
+          title: s.title,
+          sub: s.route,
+          keywords: `${s.title} ${s.route} ${s.highlights} scenic train`,
+          target: '#scenic-section'
+        })),
+        {
+          type: 'Interactive Tool',
+          title: 'Rail Route Calculator & Total Budget Estimator',
+          sub: 'Compare ICE vs D-Ticket and calculate full vacation cost',
+          keywords: 'calculator budget cost estimator price route planner',
+          target: '#calculator-section'
+        },
+        ...GERMANY_DATA.culinary.map(c => ({
+          type: 'Culinary',
+          title: c.name,
+          sub: c.region,
+          keywords: `${c.name} ${c.region} ${c.desc} food beer wine sausage cake pretzel`,
+          target: '#culinary-section'
+        })),
+        {
+          type: 'Language Aid',
+          title: 'Essential German Phrasebook',
+          sub: 'Click-to-copy German phrases for stations & restaurants',
+          keywords: 'phrasebook german language words translate guten tag prost',
+          target: '#phrasebook-section'
+        },
+        ...GERMANY_DATA.itineraries.map(it => ({
+          type: 'Itinerary',
+          title: it.title,
+          sub: it.route,
+          keywords: `${it.title} ${it.route} ${it.overview} itinerary days tour`,
+          target: '#itineraries-section'
+        })),
+        ...GERMANY_DATA.faq.map(fq => ({
+          type: 'FAQ',
+          title: fq.q,
+          sub: fq.a.slice(0, 68) + '...',
+          keywords: `${fq.q} ${fq.a} luggage sunday cash card tipping rules`,
+          target: '#faq-section'
+        }))
+      ];
+
+      searchBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navPill.classList.toggle('search-open');
+        if (navPill.classList.contains('search-open')) {
+          input.focus();
+          if (input.value.trim()) renderSearchResults(input.value);
+        } else {
+          dropdown.classList.remove('active');
+        }
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navPill.classList.remove('search-open');
+          dropdown.classList.remove('active');
+          input.value = '';
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        if (!navPill.contains(e.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+
+      function renderSearchResults(rawQuery) {
+        const q = rawQuery.toLowerCase().trim();
+        if (!q) {
+          dropdown.classList.remove('active');
+          return;
+        }
+
+        const matches = searchIndex.filter(item =>
+          item.title.toLowerCase().includes(q) ||
+          item.keywords.toLowerCase().includes(q)
+        ).slice(0, 7);
+
+        if (matches.length === 0) {
+          dropdown.innerHTML = `<div style="padding:14px; color:rgba(255,255,255,0.65); font-size:0.88rem;">No exact matches for "<strong>${rawQuery}</strong>". Try <em>Castle, ICE, Oktoberfest, Beer, Luggage, Sunday</em>.</div>`;
+        } else {
+          dropdown.innerHTML = matches.map(m => `
+            <a href="${m.target}" class="nav-search-item" onclick="handleSearchJump(event, '${m.target}')">
+              <div class="nav-search-item-meta">
+                <span class="nav-search-item-type">${m.type}</span>
+                <span class="nav-search-item-title">${m.title}</span>
+                <span class="nav-search-item-sub">${m.sub}</span>
+              </div>
+              <span style="color:var(--coral-primary); font-weight:800;">→</span>
+            </a>
+          `).join('');
+        }
+        dropdown.classList.add('active');
+      }
+
+      input.addEventListener('input', (e) => renderSearchResults(e.target.value));
+    }
+
+    window.handleSearchJump = function(e, targetSelector) {
+      e.preventDefault();
+      const dropdown = document.getElementById('navSearchDropdown');
+      if (dropdown) dropdown.classList.remove('active');
+      const el = document.querySelector(targetSelector);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // Brochure Modal
+    function initBrochureModal() {
+      const m = document.getElementById('brochureModal');
+      document.querySelectorAll('.open-brochure-modal-btn').forEach(b => {
+        b.addEventListener('click', () => m.classList.add('active'));
+      });
+      document.getElementById('closeBrochureModal').addEventListener('click', () => m.classList.remove('active'));
+      document.getElementById('btnPrintBrochure').addEventListener('click', () => window.print());
+    }
+
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        if (a.classList.contains('nav-search-item')) return;
+        a.addEventListener('click', function(e) {
+          const t = document.querySelector(this.getAttribute('href'));
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
